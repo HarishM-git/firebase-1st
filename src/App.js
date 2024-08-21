@@ -87,32 +87,35 @@ catch(e){
   
   return (
     <div className="App">
-    <Auth/>
-    
-      <input type="text"  onChange={(e)=>setNewMovie(e.target.value)}/>
-      <input type="number" onChange={(e)=>setNewRating(e.target.value)}/>
-      <input type="checkbox" checked={newReceivedAward} onChange={(e)=>setNewAward(e.target.checked)} />
-      <label htmlFor="checkbox">Received a OSCAR</label>
-      <button onClick={submittedTheNewData}>SUBMIT</button>
-    
-    <div>
-      {movies.map((movie)=>(
+  <Auth className="Auth"/>
+  
+  <div className="movie-form">
+    <input type="text" onChange={(e) => setNewMovie(e.target.value)} placeholder="Movie Name" />
+    <input type="number" onChange={(e) => setNewRating(e.target.value)} placeholder="Rating" />
+    <input type="checkbox" checked={newReceivedAward} onChange={(e) => setNewAward(e.target.checked)} />
+    <label htmlFor="checkbox">Received an OSCAR</label>
+    <button onClick={submittedTheNewData}>SUBMIT</button>
+  </div>
+  
+  <div className="movie-list">
+    {movies.map((movie) => (
       <div key={movie.id}>
-        <h1 style={{color:movie.receivedAward ? 'green': 'red'}}>{movie.title}</h1>
+        <h1 style={{ color: movie.receivedAward ? 'green' : 'red' }}>{movie.title}</h1>
         <p>{movie.rating}</p>
-        <button onClick={()=>DeleteTheNewData(movie.id)}>DELETE</button>
-        <input type="text" placeholder='Update new title'onChange={(e)=>{
-          setUpdateTitle(e.target.value)
-        }}/>
-        <button onClick={()=>UpdateTheNewData(movie.id)} >UPDATE</button>  
+        <button className="delete-da" onClick={() => DeleteTheNewData(movie.id)}>DELETE</button>
+        <input type="text" placeholder="Update new title" onChange={(e) => setUpdateTitle(e.target.value)} />
+        <button className="update-da" onClick={() => UpdateTheNewData(movie.id)}>UPDATE</button>
       </div>
     ))}
-      </div>
-      <div>
-        <input type="file" name="file" id="file" onChange={(e)=>{setFileUpload(e.target.files[0])}}/>
-        <button onClick={uploadFiles}>UPLOAD FILES</button>
-      </div>
-    </div>
+  </div>
+  
+  <div className="file-upload">
+    <input type="file" name="file" id="file" onChange={(e) => setFileUpload(e.target.files[0])} />
+    <button onClick={uploadFiles}>UPLOAD FILES</button>
+  </div>
+</div>
+
+
 
   );
 }
