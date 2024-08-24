@@ -36,6 +36,9 @@ body {
   font-size: 16px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
+.check-b{
+  padding: 25px;
+}
 
 .movie-form input[type="text"]:focus,
 .movie-form input[type="number"]:focus {

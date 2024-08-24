@@ -92,7 +92,7 @@ catch(e){
   <div className="movie-form">
     <input type="text" onChange={(e) => setNewMovie(e.target.value)} placeholder="Movie Name" />
     <input type="number" onChange={(e) => setNewRating(e.target.value)} placeholder="Rating" />
-    <input type="checkbox" checked={newReceivedAward} onChange={(e) => setNewAward(e.target.checked)} />
+    <input className="check-b" type="checkbox" checked={newReceivedAward} onChange={(e) => setNewAward(e.target.checked)} />
     <label htmlFor="checkbox">Received an OSCAR</label>
     <button onClick={submittedTheNewData}>SUBMIT</button>
   </div>
